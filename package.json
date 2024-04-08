@@ -14,7 +14,10 @@
     "build:tsc": "tsc --outDir dist",
     "build:declaration": "tsc --outDir types --declaration --emitDeclarationOnly"
   },
-  "keywords": [],
+  "keywords": [
+    "subtle-js",
+    "auth"
+  ],
   "author": "@subtle-js <https://github.com/subtle-js>",
   "repository": {
     "type": "git",
