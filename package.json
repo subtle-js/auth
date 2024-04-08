@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "The `Auth` interface provides a set of methods to perform authentication operations.",
   "main": "dist/index.js",
-  "types": "src/index.ts",
+  "types": "types/index.d.ts",
   "files": [
     "dist",
     "types"
