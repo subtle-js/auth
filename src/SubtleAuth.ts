@@ -9,7 +9,7 @@ export class SubtleAuth {
      * @param type 
      * @returns 
      */
-    createCredentialsContainer<Credentials>(name: string) {
-        return new CredentialsContainer<Credentials>(name)
+    createCredentialsContainer<Credentials>() {
+        return new CredentialsContainer<Credentials>()
     }
 }

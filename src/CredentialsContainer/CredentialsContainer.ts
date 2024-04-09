@@ -1,5 +1,4 @@
 export interface CredentialsContainerState<Credentials> {
-    name: string
     credentials: Credentials | null
 }
 
@@ -8,11 +7,20 @@ export interface CredentialsContainerState<Credentials> {
  * @todo This is currently a work in progress.
  */
 export class CredentialsContainer<Credentials = any> {
-    #state = {} as CredentialsContainerState<Credentials>
+    #state: CredentialsContainerState<Credentials> = {
+        credentials: null
+    }
 
-    constructor(name: string) {
-        this.#state.name = name
+    constructor() {
         this.#state.credentials = null
+    }
+
+    assert(credentials: Credentials) {
+        if (this.#state.credentials === null) {
+            throw new Error('No credentials stored')
+        }
+
+        return this.#state.credentials === credentials
     }
 
     get() {
