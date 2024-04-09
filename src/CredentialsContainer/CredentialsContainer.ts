@@ -1,6 +1,4 @@
-const __PRIVATE_SYMBOL__ = Symbol('CredentialsContainer');
-
-interface CredentialsContainerState<Credentials> {
+export interface CredentialsContainerState<Credentials> {
     name: string
     credentials: Credentials | null
 }
@@ -10,22 +8,22 @@ interface CredentialsContainerState<Credentials> {
  * @todo This is currently a work in progress.
  */
 export class CredentialsContainer<Credentials = any> {
-    [__PRIVATE_SYMBOL__] = {} as CredentialsContainerState<Credentials>
+    #state = {} as CredentialsContainerState<Credentials>
 
     constructor(name: string) {
-        this[__PRIVATE_SYMBOL__]['name'] = name
-        this[__PRIVATE_SYMBOL__]['credentials'] = null
+        this.#state.name = name
+        this.#state.credentials = null
     }
 
     get() {
-        return this[__PRIVATE_SYMBOL__]['credentials']
+        return this.#state.credentials
     }
 
     store(credentials: Credentials) {
-        this[__PRIVATE_SYMBOL__]['credentials'] = credentials
+        this.#state.credentials = credentials
     }
 
     remove() {
-        this[__PRIVATE_SYMBOL__]['credentials'] = null
+        this.#state.credentials = null
     }
 }
