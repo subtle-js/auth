@@ -10,6 +10,6 @@ export class SubtleAuth {
      * @returns 
      */
     createCredentialsContainer<Credentials>(name: string) {
-        return new class CustomCredentialsContainer extends CredentialsContainer<Credentials> {}(name)
+        return new CredentialsContainer<Credentials>(name)
     }
 }
