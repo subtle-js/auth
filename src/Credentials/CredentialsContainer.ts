@@ -1,4 +1,6 @@
-export interface CredentialsContainerState<Credentials> {
+import type { CredentialsContainerInterface } from "./interfaces/CredentialsContainerInterface"
+
+interface CredentialsContainerState<Credentials> {
     credentials: Credentials | null
 }
 
@@ -6,7 +8,7 @@ export interface CredentialsContainerState<Credentials> {
  * The `CredentialsContainer` class provides a set of methods to store and retrieve credentials.
  * @todo This is currently a work in progress.
  */
-export class CredentialsContainer<Credentials = any> {
+export class CredentialsContainer<Credentials = any> implements CredentialsContainerInterface<Credentials> {
     #state: CredentialsContainerState<Credentials> = {
         credentials: null
     }
