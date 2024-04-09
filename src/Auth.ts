@@ -1,5 +1,5 @@
 import { InternalAuth } from "./InternalAuth"
-import { GenericAuth } from "./generic/GenericAuth"
+import { GenericAuth } from "./GenericAuth/GenericAuth"
 
 /**
  * The `Auth` class provides a set of methods to perform authentication operations.
