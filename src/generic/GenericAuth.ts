@@ -1,41 +1,15 @@
-import type { AuthenticateMethodContract, LogoutMethodContract } from "./contracts"
-import type { GenericAuthProvierInterface } from "./interfaces"
 
-export { GenericAuth }
-
-/**
- * The `SubtleGenericAuth` class provides a set of methods to perform generic authentication operations.
- */
-class SubtleGenericAuth {
-    /**
-     * Authenticate a user with the given credentials.
-     * @param provider 
-     * @param credentials 
-     * @returns 
-     */
-    async authenticate<Request, Response>(provider: AuthenticateMethodContract<Request, Response>, credentials: Request) {
-        return provider.authenticate(credentials)
-    }
-
-    /**
-     * Logout a user with the given token.
-     * @param provider
-     * @param token 
-     * @returns 
-     */
-    async logout(provider: LogoutMethodContract, token?: string) {
-        return provider.logout(token)
-    }
-}
+import type { GenericAuthProvierInterface } from "./interfaces/GenericAuthProvierInterface"
+import { SubtleGenericAuth } from "./SubtleGenericAuth"
 
 /**
  * The `GenericAuth` class provides a set of methods to perform generic authentication operations.
  */
-class GenericAuth {
+export class GenericAuth {
     /**
      * A read-only property returns a `SubtleGenericAuth` which can then be used to perform generic authentication operations.
      */
-    public subtle = new SubtleGenericAuth as Readonly<SubtleGenericAuth>
+    public readonly subtle = new SubtleGenericAuth() as Readonly<SubtleGenericAuth>
 
     /**
      * Define a new generic authentication provider.
