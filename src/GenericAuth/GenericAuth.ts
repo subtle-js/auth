@@ -18,6 +18,12 @@ export class GenericAuth {
      */
     public defineGenericAuthProvider<Request, Response>(definition: Partial<GenericAuthProviderInterface<Request, Response>>) {
         return new class CustomGenericAuthProvider implements GenericAuthProviderInterface<Request, Response> {
+            async getProviderInfo() {
+                if (!definition.getProviderInfo) {
+                    return Promise.reject(new Error('[CustomGenericAuthProvider]: GetProviderInfo method is not implemented.'))
+                }
+                return definition.getProviderInfo()
+            }
             async authenticate(credentials: Request): Promise<Response> {
                 if (!definition.authenticate) {
                     return Promise.reject(new Error('[CustomGenericAuthProvider]: Authenticate method is not implemented.'))
