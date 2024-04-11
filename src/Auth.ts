@@ -1,4 +1,4 @@
-import { InternalAuth } from "./InternalAuth"
+import { InternalAuth } from "./internal/InternalAuth"
 import { Credentials } from "./Credentials/Credentials"
 import { GenericAuth } from "./GenericAuth/GenericAuth"
 

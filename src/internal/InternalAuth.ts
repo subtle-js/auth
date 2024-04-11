@@ -1,4 +1,4 @@
-import { SubtleAuth } from "./SubtleAuth"
+import { SubtleAuth } from "../SubtleAuth"
 import { __SUBTLEJS_AUTH_NAME, __SUBTLEJS_AUTH_VERSION } from "./package"
 
 export class InternalAuth {
