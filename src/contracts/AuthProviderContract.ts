@@ -1,8 +1,4 @@
-interface AuthProviderInfo {
-    name: string
-    type: string
-    metadata: Record<any, any>
-}
+import { AuthProviderInfo } from "../internal/AuthProviderInfo";
 
 export interface AuthProviderContract {
     getProviderInfo(): Promise<AuthProviderInfo>
