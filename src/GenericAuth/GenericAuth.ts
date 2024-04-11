@@ -1,5 +1,5 @@
 
-import type { GenericAuthProvierInterface } from "./interfaces/GenericAuthProvierInterface"
+import type { GenericAuthProviderInterface } from "./interfaces/GenericAuthProviderInterface"
 import { SubtleGenericAuth } from "./SubtleGenericAuth"
 
 /**
@@ -16,8 +16,8 @@ export class GenericAuth {
      * @param definition 
      * @returns GenericAuthProvierInterface
      */
-    public defineGenericAuthProvider<Request, Response>(definition: Partial<GenericAuthProvierInterface<Request, Response>>) {
-        return new class CustomGenericAuthProvider implements GenericAuthProvierInterface<Request, Response> {
+    public defineGenericAuthProvider<Request, Response>(definition: Partial<GenericAuthProviderInterface<Request, Response>>) {
+        return new class CustomGenericAuthProvider implements GenericAuthProviderInterface<Request, Response> {
             async authenticate(credentials: Request): Promise<Response> {
                 if (!definition.authenticate) {
                     return Promise.reject(new Error('[CustomGenericAuthProvider]: Authenticate method is not implemented.'))

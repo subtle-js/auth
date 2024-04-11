@@ -1,1 +1,1 @@
-export type * from './GenericAuthProvierInterface'
+export type * from './GenericAuthProviderInterface'
