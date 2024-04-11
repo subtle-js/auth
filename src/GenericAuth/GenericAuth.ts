@@ -16,26 +16,26 @@ export class GenericAuth {
      * @param definition 
      * @returns GenericAuthProvierInterface
      */
-    public defineGenericAuthProvider<Request, Response>(definition: Partial<GenericAuthProviderInterface<Request, Response>>) {
-        return new class CustomGenericAuthProvider implements GenericAuthProviderInterface<Request, Response> {
+    public defineGenericAuthProvider<Request, Response>(definition: Partial<GenericAuthProviderInterface<Request, Response>>): GenericAuthProviderInterface<Request, Response> {
+        return {
             async getProviderInfo() {
                 if (!definition.getProviderInfo) {
                     return Promise.reject(new Error('[CustomGenericAuthProvider]: GetProviderInfo method is not implemented.'))
                 }
                 return definition.getProviderInfo()
-            }
+            },
             async authenticate(credentials: Request): Promise<Response> {
                 if (!definition.authenticate) {
                     return Promise.reject(new Error('[CustomGenericAuthProvider]: Authenticate method is not implemented.'))
                 }
                 return Promise.resolve(definition.authenticate(credentials))
-            }
+            },
             async logout(token?: string): Promise<void> {
                 if (!definition.logout) {
                     return Promise.reject(new Error('[CustomGenericAuthProvider]: Logout method is not implemented.'))
                 }
                 return Promise.resolve(definition.logout(token))
-            }
+            },
         }
     }
 }
